@@ -3,17 +3,62 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+        <!-- Axentix CSS minified version -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@2.0.1/dist/axentix.min.css">
+        {% block stylesheets %} {{ encore_entry_link_tags('app') }} {% endblock %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
+        
+<!-- Axentix JS minified version -->
+     <script src="https://cdn.jsdelivr.net/npm/axentix@2.0.1/dist/axentix.min.js"></script>
+        {% block javascripts %} {{ encore_entry_script_tags('app') }} {% endblock %}
+
     </head>
-    <body>
-        {% block body %}{% endblock %}
+    <body class="layout-sidenav">
+    <header>
+      <nav class="navbar shadow-1 primary">
+        <a href="{{path('app_home')}}"  class="navbar-brand">Axentix</a>
+        <div class="navbar-menu ml-auto">
+          <a class="navbar-link" href="#">Acceuil</a>
+          <a class="navbar-link" href="#">Qui sommes nous ?</a>
+          <a class="navbar-link" href="#">Nos projets</a>
+        
+          <a class="navbar-link" href="#">Contact</a>
+          <a class="navbar-link" href="#">Link 3</a>
+          <a class="navbar-link" href="#">Link 4</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <!-- Code here the main content -->
+       {% block body %}{% endblock %}
+    </main>
+        <footer class="d-flex fx-col blue">
+  <div class="container">
+    <div class="grix xs3">
+      <div>
+        <h6>Left side of the footer</h6>
+        <p>
+          This is my phone number<br />
+          01 23 45 67 89
+        </p>
+      </div>
+      <div class="text-center">
+        <h6>Middle of the footer</h6>
+        <p>
+          Welcome<br />
+          I'm under "Welcome"
+        </p>
+      </div>
+      <div class="text-right">
+        <h6>Right side of the footer</h6>
+        <p>
+          This is my address<br />
+          Route 12
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="footer fx-center blue dark-1">Copyright © 2022 - Example</div>
+</footer>
     </body>
 </html>
